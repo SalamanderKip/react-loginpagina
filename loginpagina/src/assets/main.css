@@ -1,0 +1,31 @@
+body {
+  background-color: grey;
+}
+
+.main {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+input[type=text], input[type=password] {
+  border: solid lightgrey 2px;
+  width: 255px;
+  height: 56px;
+  outline: none;
+  border-radius: 3px;
+}
+
+input:focus {
+  border-color: green;
+}
+
+a {
+  margin: 10px;
+  width: auto;
+  height: auto;
+  font-size: 22px;
+  padding: 10px;
+  background-color: #e75757;
+}
+/*# sourceMappingURL=main.css.map */
