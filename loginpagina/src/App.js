@@ -1,36 +1,58 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { useState, useEffect } from 'react'
-import  NameForm from './Form'
+import LoginForm from './LoginForm';
+import FormInput from './FormInput';
 
-function App() {
-  return (
-    <Dummy text="Log in bij SalamanderKip.nl">
-      <FormInput type="text" placeholder="username" class="tooltip" id="username" labelname="username"/>
-      <FormInput type="password" placeholder="password" class="tooltip" id="password" labelname="password"/>
-    </Dummy>
-  );
-}
+class App extends React.Component {
+    constructor(props) {
+      super(props);
+      this.state = {
+        username: '',
+        password: '',
+        buttonEnabled: false,
+      };
+  
+      this.handleUserNameChange = this.handleUserNameChange.bind(this);
+      this.handlePasswordChange = this.handlePasswordChange.bind(this);
+      this.handleSubmit = this.handleSubmit.bind(this);
+    }
+  
+    handleUserNameChange(event) {
+      const username = event.target.value;
+      this.setState({ username: username });
+      this.setState({ buttonEnabled: this.shouldEnableLoginButton(username, this.state.password) });
+    }
 
-function Dummy(props) {
-  return (
-    <div className='main'>
-    <h1>{ props.text }</h1>
-      { props.children }
-    <a className="login-button" href="#">Inloggen</a>
-    </div>
-  );
-}
+    handlePasswordChange(event) {
+      const password = event.target.value;
+      this.setState({ password: event.target.value});
+      this.setState({ buttonEnabled: this.shouldEnableLoginButton(password, this.state.username) });
+    }
 
-function FormInput(props) {
-  return (
-    <div class="input-wrapper">
-      <input type={ props.type } placeholder={ props.placeholder } id={ props.id }></input>
-      <label for={ props.id }>{ props.labelname }</label> 
-      <span class="tooltiptext"> </span>
-    </div>
-  );
-}
+    shouldEnableLoginButton(value1, value2) {
+      return (value1?.length > 0 && value2?.length > 0) ?? false;
+    }
+
+    handleSubmit(event) {
+      alert('A name was submitted: ' + this.state.username);
+      event.preventDefault();
+    }
+ 
+    render() {
+      return (
+        <form onSubmit={this.handleSubmit}>
+          <LoginForm text="Login at SalamanderKip.nl" onLogin="">
+            <FormInput type="text" placeholder="username" className="tooltip" id="username" labelname="username" value={this.state.value} onChange={this.handleUserNameChange}/>
+            <FormInput type="password" placeholder="password" className="tooltip" id="password" labelname="password" value={this.state.value} onChange={this.handlePasswordChange}/>
+            <button disabled={ this.state.buttonEnabled ? "" :"disabled"  } className="login-button" href="#" onClick={this.handleSubmit}>Login</button>
+          </LoginForm>
+        </form>
+      );
+    }
+  }
+
+  export default App
+
+
 
 // class MyComponent extends React.Component {
 //   constructor(props) {
@@ -59,6 +81,3 @@ function FormInput(props) {
 //     });
 //   }
 // }
-
-
-export default App;

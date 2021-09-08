@@ -17,7 +17,6 @@ input[type=password] {
     margin: 20px 0;
 
     &:focus {
-        // border: solid green 3px;
         border-color: rgb(231, 87, 87);
     }
 
@@ -28,12 +27,13 @@ input[type=password] {
 
 .login-button {
     margin: 20px;
-    // width: 250px;
     height: auto;
+
     padding: {
         left: 100px;
         right: 100px;
-      }
+    }
+
     font-size: 22px;
     min-height: 42px;
     background-color: rgb(231, 87, 87);
@@ -49,8 +49,8 @@ input[type=password] {
     }
 
     &:disabled {
-    pointer-events: none;
-    opacity: 0.6;
+        pointer-events: none;
+        opacity: 0.6;
     }
 }
 
