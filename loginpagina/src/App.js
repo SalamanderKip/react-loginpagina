@@ -1,25 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Dummy text="Log in bij naam">
+      <FormInput type="text" placeholder="name"/>
+      <FormInput type="password" placeholder="password"/>
+    </Dummy>
   );
 }
 
+function Dummy(props) {
+  return (
+    <div className='main'>
+    <h1>{ props.text }</h1>
+      { props.children }
+    <a>Inloggen</a>
+    </div>
+  );
+}
+function FormInput(props) {
+  return (
+    <input type={ props.type } placeholder={ props.placeholder }></input> 
+  );
+}
 export default App;
