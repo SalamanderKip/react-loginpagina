@@ -55,17 +55,17 @@ input[type=password]::placeholder {
   text-transform: none;
   text-decoration: none;
   color: white;
-  pointer-events: none;
-  opacity: 0.6;
+  opacity: 1;
+  pointer-events: auto;
 }
 
 .login-button:hover {
   background-color: #e43a3a;
 }
 
-.login-button.unlocked {
-  opacity: 1;
-  pointer-events: auto;
+.login-button:disabled {
+  pointer-events: none;
+  opacity: 0.6;
 }
 
 .input-wrapper {

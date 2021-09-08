@@ -41,16 +41,16 @@ input[type=password] {
     text-transform: none;
     text-decoration: none;
     color: white;
-    pointer-events: none;
-    opacity: 0.6;
+    opacity: 1;
+    pointer-events: auto;
 
     &:hover {
         background-color: rgb(228, 58, 58);
     }
 
-    &.unlocked {
-        opacity: 1;
-        pointer-events: auto;
+    &:disabled {
+    pointer-events: none;
+    opacity: 0.6;
     }
 }
 

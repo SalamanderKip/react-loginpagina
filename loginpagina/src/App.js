@@ -1,5 +1,7 @@
-import { useState } from 'react'
+import React from 'react';
+import ReactDOM from 'react-dom';
 import { useState, useEffect } from 'react'
+import  NameForm from './Form'
 
 function App() {
   return (
@@ -29,4 +31,34 @@ function FormInput(props) {
     </div>
   );
 }
+
+// class MyComponent extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       inputvalue: ''
+//     };
+//   }
+
+//     handleChange(event){
+//       alert(event.target.value);
+//       // event.preventDefault();
+
+//     }
+//   render() {
+//     return (
+//       //...
+//       <input value={this.state.value} onChange={evt => this.updateInputValue(evt)}/>
+//       //...
+//     );
+//   }
+
+//   updateInputValue(evt) {
+//     this.setState({
+//       inputValue: evt.target.value
+//     });
+//   }
+// }
+
+
 export default App;
