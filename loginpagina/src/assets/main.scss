@@ -1,5 +1,5 @@
 body {
-    background-color: grey;
+    background-color: whitesmoke;
 }
 
 .main {
@@ -7,24 +7,55 @@ body {
     place-items: center;
 }
 
-input[type=text], input[type=password] {
+input[type=text],
+input[type=password] {
     border: solid lightgrey 2px;
     width: 255px;
     height: 56px;
     outline: none;
     border-radius: 3px;
+    margin: 20px 0;
+
+    &:focus {
+        // border: solid green 3px;
+        border-color: rgb(231, 87, 87);
+    }
+
+    &::placeholder {
+        font-size: large;
+    }
 }
 
-input:focus {
-    // border: solid green 3px;
-    border-color: green;
-}
-
-a {
-    margin: 10px;
-    width: auto;
+.login-button {
+    margin: 20px;
+    // width: 250px;
     height: auto;
+    padding: {
+        left: 100px;
+        right: 100px;
+      }
     font-size: 22px;
-    padding: 10px;
+    min-height: 42px;
     background-color: rgb(231, 87, 87);
+    border-radius: 8px;
+    text-transform: none;
+    text-decoration: none;
+    color: white;
+    pointer-events: none;
+    opacity: 0.6;
+
+    &:hover {
+        background-color: rgb(228, 58, 58);
+    }
+
+    &.unlocked {
+        opacity: 1;
+        pointer-events: auto;
+    }
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    font-size: 20px;
 }
